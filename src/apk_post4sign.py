@@ -23,6 +23,7 @@ def apk_post((p,f), label):
             files = {'file': (basename(f), open(f, 'rb'), 'application/vnd.android.package-archive'), 'path': ('',p), 'user': ('',user)}
             if label != "":
                 files['label'] = ('',label)
+            files['certification'] = 'wunding.keystore'
             print("uploading...")
             print(files)
             print("")
