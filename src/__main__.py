@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if sys.stdin.encoding.lower() != 'utf-8':
             label = label.decode(sys.stdin.encoding).encode('utf-8')
 
-    print(label)
-    #apk_auto(label)
+    #print(label)
+    apk_auto(label)
     print("结束，按回车退出。".decode('utf-8'))
     raw_input()
