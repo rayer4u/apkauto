@@ -6,8 +6,14 @@ from apk_auto import apk_auto
 
 if __name__ == "__main__":
     label = ""
+
+    cfg = '_release'
     if len(sys.argv) > 1:
-        label = sys.argv[1]
+        cfgs = [s for s in sys.argv if s.startswith('_')]
+        if len(cfgs) > 0:
+            #只取第一个
+            cfg = cfgs[0]
+
     if label == "":
         print("请输入标签（无标签的包可能被删除，无需标签直接按回车）：".decode('utf-8'))
         label = raw_input()
@@ -24,6 +30,6 @@ if __name__ == "__main__":
             label = label.decode(sys.stdin.encoding).encode('utf-8')
 
     #print(label)
-    apk_auto(label)
+    apk_auto(label, cfg)
     print("结束，按回车退出。".decode('utf-8'))
     raw_input()
