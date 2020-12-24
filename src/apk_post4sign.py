@@ -29,12 +29,12 @@ def apk_post((p, f), label):
                      'user': ('', user)}
             if label != "":
                 files['label'] = ('', label)
-            files['certification'] = 'wunding.keystore'
+            files['certification'] = ('', 'wunding.keystore')
             print("uploading...")
             print(files)
             print("")
-            rep = requests.post("http://192.168.0.33/publish/apksign/",
-                                files=files)
+            rep = requests.post("https://192.168.0.101/publish/apksign/",
+                                files=files, verify=False)
             if rep.status_code == 200:
                 ret = json.loads(rep.content)
                 if 'url' in ret:
